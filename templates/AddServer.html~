@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Server to Autodeployer</title>
+    <link href="Forms.css" type="text/css" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+<h1>New Server</h1>
+
+<form name="add" method="post" onsubmit="return validateUrl()" action="addServer">
+    
+    <table border = "0">
+
+        <tr>
+            <td>Destination: eg user@example.com</td>
+            <td><input class="fill"  type="text" name="server" required ></td>
+        </tr>
+
+        <tr>
+            <td>User password:</td>
+            <td><input class="fill" type="password" name="pwd" required ></td>
+        </tr>
+
+		<tr>
+            
+            <td><input type="submit"  value="Add" id = "button"></td>
+        </tr>
+
+	</table>
+<footer>&copy; Copyright Niafikra.</footer>
+<script>
+	function validateUrl(){
+		var s = document.forms["add"]["server"].value;	
+		var atpos = s.indexOf("@");
+		if(atpos <= 0 || atpos >= s.length-3 || s == "" || s == null){
+			alert("Not a valid server name");
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	
+</script>
+</body>
+</html>
